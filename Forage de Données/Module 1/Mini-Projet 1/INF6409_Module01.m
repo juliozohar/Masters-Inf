@@ -1,10 +1,12 @@
-% INF-6409 - Forage de Données
-% Prénom: Julio-Cesar  Nom: Torres dos Santos 
+% ***************************************************************************************
+% INF-6409 - Forage de DonnÃ©es
+% PrÃ©nom: Julio-Cesar  Nom: Torres dos Santos 
 % Prof : Neila Mezgani 
-% Chargé d'encadrement: Youssef Ouakrim
+% ChargÃ© d'encadrement: Youssef Ouakrim
 % Mini-Projet Module 01
-
+% ***************************************************************************************
 % Exercice 3
+
 %Netoyage des valeurs existentes avant. 
 clear all; 
 close all; 
@@ -34,33 +36,34 @@ Mat = [
 20  2
 ]; 
 
-% Répresentation graphique des donnés de la deuxième collonne (effetifs /
-% notes) en forme de diagramme en boîte. 
+% RÃ©presentation graphique des donnÃ©s de la deuxiÃ¨me collonne (effetifs /
+% notes) en forme de diagramme en boÃ®te. 
 figure;
 boxplot(Mat(:,2));
-title('Notes en mathématiques');
+title('Notes en mathÃ©matiques');
 
-% Détermination de la mediane de la matrice 
+% DÃ©termination de la mediane de la matrice 
 nu = median(Mat); 
 
-% Détermination des quartiles Q1, Q2 et Q3 de la matrice
+% DÃ©termination des quartiles Q1, Q2 et Q3 de la matrice
 quantile(Mat(:,2), [0.25 0.5 0.75 ])
 
 
-% Solution du Problème proposé
+% ***************************************************************************************
+% Solution du ProblÃ¨me proposÃ©
 data = []; 
 [num, txt] = xlsread('DonneesOzone', 'Feuil1', '', '', data);
 
-% Définition des variables: 
-% obs   : variable quantitative discrète ordinale
-% maxo3 : variable quantitative discrète 
+% DÃ©finition des variables: 
+% obs   : variable quantitative discrÃ¨te ordinale
+% maxo3 : variable quantitative discrÃ¨te 
 % T9    : variable quantitative continue
 % T12   : variable quantitative continue
 % T15   : variable quantitative continue
-% Ne9   : variable quantitative discrète
-% Ne12  : variable quantitative discrète
-% Ne15  : variable quantitative discrète
-% max03v: variable quantitative discrète
+% Ne9   : variable quantitative discrÃ¨te
+% Ne12  : variable quantitative discrÃ¨te
+% Ne15  : variable quantitative discrÃ¨te
+% max03v: variable quantitative discrÃ¨te
 % vent  : variable qualitative nominale
 % pluie : variable qualitative nominale
 obs  = data(:,1);
@@ -75,13 +78,13 @@ maxo3v= data(:,9);
 vent = data(:,10); 
 pluie= data(:,11); 
 
-% Déterminer le nombre d'individus. Retourne deux valeurs: premier c'est le
-% nombre d'individus; le deuxième, la quantité de variables présente dans
+% DÃ©terminer le nombre d'individus. Retourne deux valeurs: premier c'est le
+% nombre d'individus; le deuxiÃ¨me, la quantitÃ© de variables prÃ©sente dans
 % la matrice. 
 qty_rows = size(data); 
 
 
-% Calculer les caractéristiques de tendence centrale et de dispersion des 
+% Calculer les caractÃ©ristiques de tendence centrale et de dispersion des 
 % variables.  
 obs_moyenne   = mean(obs); 
 obs_ecart     = std(obs); 
@@ -119,7 +122,7 @@ maxo3v_moyenne = mean(maxo3v);
 maxo3v_ecart   = std(maxo3v); 
 maxo3v_mediane = median(maxo3v); 
 
-% Présenter le résultat des variables dans un tableau. 
+% PrÃ©senter le rÃ©sultat des variables dans un tableau. 
 %Tab_names = {'maxo3'; 't9'; 't12'; 't15'; 'ne9'; 'ne12'; 'ne15'; 'maxo3v'};
 Tab = [
        maxo3_moyenne ,  maxo3_ecart ,  maxo3_mediane 
@@ -135,19 +138,20 @@ Tab = [
 
 T = table(Tab);
 
-% Création du boxplot des variables de temperature et nebulosité.
+% CrÃ©ation du boxplot des variables de temperature et nebulositÃ©.
 figure; 
 B = boxplot([t9, t12, t15, ne9, ne12, ne15],'labels', ...
     {'T9', 'T12', 'T15', 'Ne9', 'Ne12', 'Ne15'}, 'whisker', 1); 
-title('Variables observées'); 
+title('Variables observÃ©es'); 
 
 
-% Création du diagramme camembert pour les variables qualitatives 
+% CrÃ©ation du diagramme camembert pour les variables qualitatives 
 figure(3); 
 directions = {'Nord', 'Sud', 'ouest', 'Est'};
 vent = categorical(vent); 
 h = pie(vent); 
 
+% ***************************************************************************************
 
 
  
