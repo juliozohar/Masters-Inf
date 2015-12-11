@@ -1,11 +1,6 @@
 % *************************************************************************
-<<<<<<< HEAD
-% INF-6409 - Forage de DonnÈes
-% PrÈnom: Julio-Cesar  Nom: Torres dos Santos 
-=======
 % INF-6409 - Forage de Donn√©es
 % Pr√©nom: Julio-Cesar  Nom: Torres dos Santos 
->>>>>>> origin/master
 % Prof : Neila Mezgani 
 % Charg√© d'encadrement: Youssef Ouakrim
 % Mini-Projet Module 01
@@ -52,42 +47,19 @@ title('Notes en math√©matiques');
 
 t = 'Solution d''exercice 3: '; 
 disp(t); 
-<<<<<<< HEAD
-% DÈtermination de la mediane de la matrice par la fonction median();
-t = 'MÈdiane de la matrice: ';
-=======
 % D√©termination de la mediane de la matrice par la fonction median();
 t = 'M√©diane de la matrice: ';
->>>>>>> origin/master
 disp(t); 
 nu = median(Mat(:,2));
 disp(nu); 
 
 
-<<<<<<< HEAD
-% DÈtermination des quartiles Q1, Q2 et Q3 de la matrice par la fonction
-=======
 % D√©termination des quartiles Q1, Q2 et Q3 de la matrice par la fonction
->>>>>>> origin/master
 % quantile();
 t = 'Quartils Q1, Q2 et Q3:'; 
 disp(t); 
 quart = quantile(Mat(:,2), [0.25 0.5 0.75 ]);
 disp(quart); 
-<<<<<<< HEAD
-
-
-
-% *****************************
-% Solution du ProblËme proposÈ
-% *****************************
- 
-t = 'Solution du problËme proposÈ: '; 
-disp(t);
-
-[num, txt, raw] = xlsread('DonneesOzone', 'Feuil1');
-=======
->>>>>>> origin/master
 
 
 
@@ -106,15 +78,6 @@ disp(t);
 % T9    : variable quantitative continue
 % T12   : variable quantitative continue
 % T15   : variable quantitative continue
-<<<<<<< HEAD
-% Ne9   : variable quantitative discrËte
-% Ne12  : variable quantitative discrËte
-% Ne15  : variable quantitative discrËte
-% V9    : variable quantitative continue
-% V12   : variable quantitative continue
-% V15   : variable quantitative continue
-% max03v: variable quantitative discrËte
-=======
 % Ne9   : variable quantitative discr√®te
 % Ne12  : variable quantitative discr√®te
 % Ne15  : variable quantitative discr√®te
@@ -122,7 +85,6 @@ disp(t);
 % V12   : variable quantitative continue
 % V15   : variable quantitative continue
 % max03v: variable quantitative discr√®te
->>>>>>> origin/master
 % vent  : variable qualitative nominale
 % pluie : variable qualitative nominale
 obs  = num(:,1);
@@ -140,17 +102,10 @@ maxo3v= num(:,12);
 vent = txt(:,13); 
 pluie= txt(:,14); 
 
-<<<<<<< HEAD
-% DÈterminer le nombre d'individus. Retourne deux valeurs: premier c'est le
-% nombre d'individus; le deuxiËme, la quantitÈ de variables prÈsente dans
-% la matrice. 
-t = 'Nombre d''individus prÈsents dans le fichier: ';
-=======
 % D√©terminer le nombre d'individus. Retourne deux valeurs: premier c'est le
 % nombre d'individus; le deuxi√®me, la quantit√© de variables pr√©sente dans
 % la matrice. 
 t = 'Nombre d''individus pr√©sents dans le fichier: ';
->>>>>>> origin/master
 disp(t); 
 qty_rows = size(num); 
 disp(qty_rows); 
@@ -216,17 +171,10 @@ disp(T);
 figure; 
 B = boxplot([t9, t12, t15, ne9, ne12, ne15],'labels', ...
     {'T9', 'T12', 'T15', 'Ne9', 'Ne12', 'Ne15'}, 'whisker', 1); 
-<<<<<<< HEAD
-title('Variables observÈes (temperature et nÈbulositÈ)'); 
-
-
-% CrÈation du diagramme Cammembert pour la variable vent
-=======
-title('Variables observ√©es'); 
+title('Variables observ√©es (temperature et n√©bulosit√©)'); 
 
 
 % Cr√©ation du diagramme Cammembert pour la variable vent
->>>>>>> origin/master
 % Compte chaque modalite de la variable
 ventStatus = categorical(vent,...
     {'Nord' 'Sud' 'Est' 'Ouest'},'Ordinal',true);
@@ -236,11 +184,7 @@ figure;
 pie(ventStatus);
 title('Direction du vent');
 
-<<<<<<< HEAD
-% CrÈation du diagramme Cammembert pour la variable pluie
-=======
 % Cr√©ation du diagramme Cammembert pour la variable pluie
->>>>>>> origin/master
 % Compte chaque modalite de la variable
 pluieStatus = categorical(pluie,...       
     {'Sec' 'Pluie'},'Ordinal',true);
@@ -252,8 +196,4 @@ title('Status de la pluie');
 
 % *************************************************************************
 % Fin du fichier
-<<<<<<< HEAD
 % *************************************************************************
-=======
-% *************************************************************************
->>>>>>> origin/master
