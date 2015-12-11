@@ -1,10 +1,14 @@
+% *************************************************************************
 % INF-6409 - Forage de Données
 % Prénom: Julio-Cesar  Nom: Torres dos Santos 
 % Prof : Neila Mezgani 
 % Chargé d'encadrement: Youssef Ouakrim
 % Mini-Projet Module 01
+% *************************************************************************
 
+% ***********
 % Exercice 3
+% ***********
 %Netoyage des valeurs existentes avant. 
 clear all; 
 close all; 
@@ -40,16 +44,33 @@ figure;
 boxplot(Mat(:,2));
 title('Notes en mathématiques');
 
-% Détermination de la mediane de la matrice 
-nu = median(Mat); 
 
-% Détermination des quartiles Q1, Q2 et Q3 de la matrice
-quantile(Mat(:,2), [0.25 0.5 0.75 ])
+t = 'Solution d''exercice 3: '; 
+disp(t); 
+% Détermination de la mediane de la matrice par la fonction median();
+t = 'Médiane de la matrice: ';
+disp(t); 
+nu = median(Mat(:,2));
+disp(nu); 
 
 
+% Détermination des quartiles Q1, Q2 et Q3 de la matrice par la fonction
+% quantile();
+t = 'Quartils Q1, Q2 et Q3:'; 
+disp(t); 
+quart = quantile(Mat(:,2), [0.25 0.5 0.75 ]);
+disp(quart); 
+
+
+
+% *****************************
 % Solution du Problème proposé
-data = []; 
-[num, txt] = xlsread('DonneesOzone', 'Feuil1', '', '', data);
+% *****************************
+ 
+t = 'Solution du problème proposé: '; 
+disp(t);
+
+[num, txt, raw] = xlsread('DonneesOzone', 'Feuil1');
 
 % Définition des variables: 
 % obs   : variable quantitative discrète ordinale
@@ -60,25 +81,34 @@ data = [];
 % Ne9   : variable quantitative discrète
 % Ne12  : variable quantitative discrète
 % Ne15  : variable quantitative discrète
+% V9    : variable quantitative continue
+% V12   : variable quantitative continue
+% V15   : variable quantitative continue
 % max03v: variable quantitative discrète
 % vent  : variable qualitative nominale
 % pluie : variable qualitative nominale
-obs  = data(:,1);
-maxo3= data(:,2); 
-t9   = data(:,3); 
-t12  = data(:,4); 
-t15  = data(:,5); 
-ne9  = data(:,6); 
-ne12 = data(:,7); 
-ne15 = data(:,8); 
-maxo3v= data(:,9); 
-vent = data(:,10); 
-pluie= data(:,11); 
+obs  = num(:,1);
+maxo3= num(:,2); 
+t9   = num(:,3); 
+t12  = num(:,4); 
+t15  = num(:,5); 
+ne9  = num(:,6); 
+ne12 = num(:,7); 
+ne15 = num(:,8); 
+v9   = num(:,9); 
+v12  = num(:,10); 
+v15  = num(:,11); 
+maxo3v= num(:,12); 
+vent = txt(:,13); 
+pluie= txt(:,14); 
 
 % Déterminer le nombre d'individus. Retourne deux valeurs: premier c'est le
 % nombre d'individus; le deuxième, la quantité de variables présente dans
 % la matrice. 
-qty_rows = size(data); 
+t = 'Nombre d''individus présents dans le fichier: ';
+disp(t); 
+qty_rows = size(num); 
+disp(qty_rows); 
 
 
 % Calculer les caractéristiques de tendence centrale et de dispersion des 
@@ -133,21 +163,37 @@ Tab = [
       ]; 
 
 
-T = table(Tab);
+T = table(Tab, 'RowNames', {'maxo3' 't9' 't12' 't15' 'ne9' 'ne12' 'ne15'...
+    'mav03v'}); 
+disp(T); 
 
 % Création du boxplot des variables de temperature et nebulosité.
 figure; 
 B = boxplot([t9, t12, t15, ne9, ne12, ne15],'labels', ...
     {'T9', 'T12', 'T15', 'Ne9', 'Ne12', 'Ne15'}, 'whisker', 1); 
-title('Variables observées'); 
+title('Variables observées (temperature et nébulosité)'); 
 
 
-% Création du diagramme camembert pour les variables qualitatives 
-figure(3); 
-directions = {'Nord', 'Sud', 'ouest', 'Est'};
-vent = categorical(vent); 
-h = pie(vent); 
+% Création du diagramme Cammembert pour la variable vent
+% Compte chaque modalite de la variable
+ventStatus = categorical(vent,...
+    {'Nord' 'Sud' 'Est' 'Ouest'},'Ordinal',true);
 
+% Plot le graphique
+figure;
+pie(ventStatus);
+title('Direction du vent');
 
+% Création du diagramme Cammembert pour la variable pluie
+% Compte chaque modalite de la variable
+pluieStatus = categorical(pluie,...       
+    {'Sec' 'Pluie'},'Ordinal',true);
 
- 
+% Plot le graphique 
+figure;
+pie(pluieStatus);
+title('Status de la pluie');
+
+% *************************************************************************
+% Fin du fichier
+% *************************************************************************
